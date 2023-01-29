@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+   MyApp({Key? key}) : super(key: key);
+  bool _isDark = false;
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+      theme: ThemeData.dark(),
       //remove show debug banner
       debugShowCheckedModeBanner: false,
       title: 'a list app',
@@ -73,6 +74,7 @@ class _HomePgeState extends State<HomePge> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF383D1F),
         title: Text('List app'),
       ),
       body:Padding(
@@ -83,8 +85,9 @@ class _HomePgeState extends State<HomePge> {
             TextField(
             onChanged: (value)=> _runFilter(value),
               decoration: InputDecoration(
+                fillColor: Color(0xFF2B4625 ),
                 labelText: 'Search',
-                suffixIcon: Icon(Icons.search)
+                suffixIcon: Icon(Icons.search,color: Color(0xFF929C3B ))
               ),
             ),
             SizedBox(height: 10,),
@@ -93,7 +96,7 @@ class _HomePgeState extends State<HomePge> {
                itemCount: _foundUsers.length,
                itemBuilder: (context,index)=> Card(
                key: ValueKey(_foundUsers[index]["id"]),
-               color: Colors.amberAccent,
+               color: Color(0xFF929C3B ),
                elevation: 4,
                margin: const EdgeInsets.symmetric(vertical: 10),
                child: ListTile(
